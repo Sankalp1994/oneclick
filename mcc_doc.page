@@ -1,0 +1,174 @@
+<apex:page readOnly="true"
+           applyHtmlTag="false"    
+           sidebar="false"    
+           showHeader="false"    
+           cache="true"    
+           renderAs="advanced_pdf"
+           docType="html-5.0"
+           controller="mcc_doc_ctrl">
+    <head>    
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />    
+        <style type="text/css">
+            @page {
+            size: A4 landscape;    
+            border: 1px solid black;    
+            padding-left: 5px;    
+            padding-right: 5px;      
+            }
+            th {  
+            font-weight: bold;
+            text-align: center;
+            background-color: #B8CBE4;
+            color: black;
+            padding: 8px;
+            }
+            td {    
+            font-size: 15px;
+            text-align: left;
+            padding: 8px;
+            }
+            table{
+            border-collapse: collapse;
+            }
+            table, th, td {
+            border: 1px solid black;
+            font-family: Calibri, sans-serif;
+            }
+        </style>    
+    </head>      
+    <div style="width:100%;">
+    <div style="margin: 0 auto; width:90%;">
+         <img src="https://sankalp-apps-dev-ed--c.vf.force.com/resource/1705084855000/Cisco?" height="100"/>
+    </div>
+    <div style="margin: 0 auto; width:90%; height: 10px; background: #2688C9;">
+    </div>
+    <table style="margin: 0 auto;" width="90%">
+        <tr>
+            <td style="text-align: left; width:60%; border: 0; color: #1417CC;">
+            Cisco Systems Canada Co.</td>
+            <td style="border: 0;"> 
+            Project Name: <span style="color: #1417CC;">TD Project</span>
+            </td>
+        </tr>
+        <tr>
+            <td style="border: 0; width:60%;">
+            CONFIDENTIAL
+            </td>
+            <td style="border: 0;">
+            Project ID: <span style="color: #1417CC;">12012021</span>/ Deal ID: <span style="color: #1417CC;">12010000</span>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table style="margin: 0 auto; padding: 5px;" width="90%">
+        <tr>
+            <td style="width: 25%; background:#95B2D7; border-right: 2px solid #95B2D7; border-left: 2px solid #000;"></td> 
+            <td style="width: 50%; background:#95B2D7; text-align:center; font-size:15px; border-right: 2px solid #95B2D7;">
+                <span style="font-family: Calibri, sans-serif; font-weight: 600; line-height: 1.4;">
+                CISCO SERVICE   -    CUSTOMER STATEMENT OF WORK<br/>
+                MILESTONE COMPLETION CERTIFICATE (MCC)
+                </span>
+            </td>
+            <td style="width: 25%; background:#95B2D7; border-right: 2px solid #95B2D7; border-left: 2px solid #95B2D7;"></td>
+        </tr>
+    </table>
+    <br/>
+    <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+        Pursuant to the Statement of Work (“SOW”) between <span style="color: #1417CC;"> Cisco Systems Canada Co. </span> (“Cisco”) and <span style="color: #1417CC;">TD</span> (“Customer”), Customer hereby <br/>
+        certifies, by the signature below or electronic signature, as applicable, of its authorized representative, that the Service Milestone <br/>
+        described below has been completed on the date indicated below and in accordance with the terms of the SOW.
+    </div>
+        <br/><br/>
+        <table style="margin: 0 auto; border: #808080;" width="90%">    
+            <tr>
+                <th style="width:15%; ">Milestone #</th>    
+                <th style="width:15%; ">Customer Purchase Order Number</th>
+                <th style="width:15%; ">Cisco Sales Order Number</th> 
+                <th style="width:27% ">Milestone Description</th>
+                <th style="width:13%; ">Milestone Completion Date</th>
+                <th style="width:15%; ">Invoice Amount (CAD)</th>
+            </tr>    
+            <apex:repeat value="{!oppList}" var="op">
+                <tr>                
+                    <td style="text-align: center; color: #1417CC;"><apex:outputText value="{!op.MainCompetitors__c}"/></td>
+                    <td style="text-align: center; color: #1417CC;"><apex:outputText value="{!op.TrackingNumber__c}"/></td>   
+                    <td style="text-align: center; color: #1417CC;"><apex:outputText value="{!op.OrderNumber__c}"/></td>   
+                    <td style="text-align: center; color: #1417CC;"><apex:outputText value="{!op.Description}"/></td>   
+                    <td style="text-align: center; color: #1417CC;">
+                        <apex:outputText value="{0, date, MMMM d','  yyyy}">
+                            <apex:param value="{!op.CloseDate}" /> 
+                        </apex:outputText>
+                    </td>    
+                    <td style="text-align: right; color: #1417CC;">
+                        <apex:outputText value="{0, Number, Currency}">
+                            <apex:param value="{!op.Amount}" />
+                        </apex:outputText>
+                    </td>
+
+                </tr>       
+            </apex:repeat>
+                <tr> 
+                    <td colspan="3"></td>
+                    <td style="text-align: right; fon-size: 16px;">
+                        <b style="font-family: Calibri, sans-serif;">Service Invoice Amount</b>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right; color: #1417CC;">$ 1201.00</td>
+                </tr>
+                <tr> 
+                    <td colspan="3"></td>
+                    <td style="text-align: right; fon-size: 16px;">
+                        <b style="font-family: Calibri, sans-serif;">Total Invoice Amount</b>
+                    </td>
+                    <td></td>
+                    <td style="text-align: right; color: #1417CC;">$ 1201.00</td>
+                </tr>   
+        </table> 
+        <br/><br/>
+        <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+            Is this the last Milestone Completion Certificate? (Yes/No): <span style="color: #1417CC;">No</span>
+        </div>
+        <br/>
+        <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+            Customer has five (5) Business Days from the receipt of this MCC to sign and return this MCC to Cisco.
+        </div>
+        <br/>
+        <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+            Signature of the MCC by Customer, or Customer’s failure to respond to this MCC in writing within five (5) Business Days, signifies
+        </div>
+        <br/>
+        <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+            Customer’s acceptance that Cisco has performed the Services listed in the MCC in accordance with the SOW. 
+        </div>
+        <br/><br/>
+        <div style="margin: 0 auto; width:90%; font-size:15px; font-family: Calibri, sans-serif;">
+            <table>
+                <tr>
+                    <td style="border: 0; width: 65%;">Submitted By:</td>
+                    <td style="border: 0; width: 35%;">Acknowledged and Agreed:</td>
+                </tr>
+                <tr>
+                    <td style="border: 0; width: 65%;"><b>Cisco Systems Canada Co. </b></td>
+                    <td style="border: 0; width: 35%;"><b>TD </b></td>
+                </tr>
+                <tr>
+                    <td style="border: 0; width: 65%;">MCC Submittal Date: &nbsp;&nbsp;&nbsp; January 14, 2021</td>
+                    <td style="border: 0; width: 35%;">By:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________</td>
+                </tr>
+                <tr>
+                    <td style="border: 0; width: 65%;"></td>
+                    <td style="border: 0; width: 35%;">Name:&nbsp;&nbsp;&nbsp;__________________________</td>
+                </tr>
+                <tr>
+                    <td style="border: 0; width: 65%;"></td>
+                    <td style="border: 0; width: 35%;">Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________</td>
+                </tr>
+                <tr>
+                    <td style="border: 0; width: 65%;"></td>
+                    <td style="border: 0; width: 35%;">Date:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__________________________</td>
+                </tr>
+            </table>
+        </div>
+    </div> 
+   
+</apex:page>
