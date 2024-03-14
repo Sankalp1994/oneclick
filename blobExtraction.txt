@@ -1,0 +1,8 @@
+//Getting Blob from VF Page
+
+PageReference PDf =  Page.mcc_doc;//Replace attachmentPDf with the page you have rendered as PDF
+PDf.getParameters().put('Id',recordId);
+PDf.setRedirect(true);
+Blob b ;
+b = PDf.getContent();
+
