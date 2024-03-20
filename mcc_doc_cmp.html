@@ -1,6 +1,11 @@
 <template>
     <lightning-quick-action-panel header="One Click MCC Document">
-        <iframe src={src} width="100%" height="600px" frameborder="0" scrolling="yes"></iframe>
+        <lightning-input type="text" data-id="textValue" label="Enter some text to Pass into Document" placeholder="type here..."></lightning-input><br/>
+        <button class="slds-button slds-button_brand" onclick={valuePassing}>Pass Value from LWC to DOC</button>
+
+        <!--PDF Document Rendering Section -->
+            <iframe src={src} width="100%" height="600px" frameborder="0" scrolling="yes"></iframe>
+        <!--End of PDF Document Rendering Section -->
     </lightning-quick-action-panel>
     <footer class="slds-modal__footer">
         <button class="slds-button slds-button_brand" onclick={upload}>Upload</button> &nbsp;&nbsp;
