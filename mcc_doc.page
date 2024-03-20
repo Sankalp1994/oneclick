@@ -37,6 +37,7 @@
         </style>    
     </head>      
     <div style="width:100%;">
+    <div style="font-size:20px;">Value Passing from LWC --> {!textValue}</div>
     <div style="margin: 0 auto; width:90%;">
          <img src="https://sankalp-apps-dev-ed--c.vf.force.com/resource/1705084855000/Cisco?" height="100"/>
     </div>
