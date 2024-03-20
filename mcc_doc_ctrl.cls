@@ -1,8 +1,10 @@
 public with sharing class mcc_doc_ctrl {
     public List<Opportunity> oppList {get;set;}
     public String currentRecordId {get;set;}
+    public String textValue {get;set;}
     public mcc_doc_ctrl() {
         currentRecordId  = ApexPages.CurrentPage().getparameters().get('id');
+        textValue  = ApexPages.CurrentPage().getparameters().get('textValue');
         oppList = [SELECT MainCompetitors__c,TrackingNumber__c,
                     OrderNumber__c,Description,closeDate,Amount 
                      FROM Opportunity WHERE AccountId = :currentRecordId];
